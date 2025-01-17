@@ -1,0 +1,83 @@
+{
+    "version": 4,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 26,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base",
+            "hidden": true,
+            "toolset": "v143",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "installDir": "${sourceDir}/install/${presetName}"
+        },
+        {
+            "name": "net472/x86",
+            "displayName": "Windows platform, .NET framework v4.7.2, x86 architecture",
+            "inherits": "base",
+            "architecture": "Win32",
+            "cacheVariables": {
+                "NET_CLR_SUPPORT": "true",
+                "NET_CLR": "",
+                "NET_FRAMEWORK": "net4.7.2"
+            }
+        },
+        {
+            "name": "net472/x64",
+            "displayName": "Windows platform, .NET framework v4.7.2, x64 architecture",
+            "inherits": "base",
+            "architecture": "x64",
+            "cacheVariables": {
+                "NET_CLR_SUPPORT": "true",
+                "NET_CLR": "",
+                "NET_FRAMEWORK": "net4.7.2"
+            }
+        },
+        {
+            "name": "net8.0/x86",
+            "displayName": "Windows platform, .NET v8.0, x86 architecture",
+            "inherits": "base",
+            "architecture": "Win32",
+            "cacheVariables": {
+                "NET_CLR_SUPPORT": "NetCore",
+                "NET_CLR": "NetCore",
+                "NET_FRAMEWORK": "net8.0"
+            }
+        },
+        {
+            "name": "net8.0/x64",
+            "displayName": "Windows platform, .NET v8.0, x64 architecture",
+            "inherits": "base",
+            "architecture": "x64",
+            "cacheVariables": {
+                "NET_CLR_SUPPORT": "NetCore",
+                "NET_CLR": "NetCore",
+                "NET_FRAMEWORK": "net8.0"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "net472/x86",
+            "configurePreset": "net472/x86",
+            "targets": ["NativeLibA", "LibA"]
+        },
+        {
+            "name": "net472/x64",
+            "configurePreset": "net472/x64",
+            "targets": ["NativeLibA", "LibA"]
+        },
+        {
+            "name": "net8.0/x86",
+            "configurePreset": "net8.0/x86",
+            "targets": ["NativeLibA", "LibA"]
+        },
+        {
+            "name": "net8.0/x64",
+            "configurePreset": "net8.0/x64",
+            "targets": ["NativeLibA", "LibA"]
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageId>LibB</PackageId>
+    <Title>Library B</Title>
+    <Version>1.2.3.4</Version>
+    <Authors>ACME</Authors>
+    <Company>ACME</Company>
+    <Description>Library B.</Description>
+    <Copyright>Copyright © ACME 2025</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="LibA">
+      <HintPath>..\LibA\install\$(TargetFramework)\$(Platform)\LibA.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- .NET Framework 4.7.2 x86 -->
+    <None Include="..\LibA\install\net472\x86\LibA.dll" Pack="true" PackagePath="runtimes\win-x86\net472"/>
+    <!-- .NET Framework 4.7.2 x64 -->
+    <None Include="..\LibA\install\net472\x64\LibA.dll" Pack="true" PackagePath="runtimes\win-x64\net472"/>
+    <!-- .NET Core 8.0 x86 -->
+    <None Include="..\LibA\install\net8.0\x86\LibA.dll" Pack="true" PackagePath="runtimes\win-x86\net8.0"/>
+    <None Include="..\LibA\install\net8.0\x86\Ijwhost.dll" Pack="true" PackagePath="runtimes\win-x86\net8.0"/>
+    <!-- .NET Core 8.0 x64 -->
+    <None Include="..\LibA\install\net8.0\x64\LibA.dll" Pack="true" PackagePath="runtimes\win-x64\net8.0"/>
+    <None Include="..\LibA\install\net8.0\x64\Ijwhost.dll" Pack="true" PackagePath="runtimes\win-x64\net8.0"/>
+  </ItemGroup>
+
+</Project>
